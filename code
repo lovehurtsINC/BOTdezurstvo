@@ -1,0 +1,46 @@
+import telebot
+import schedule
+import time
+bot = telebot.TeleBot('927838254:AAGpYd2BBkswEjhMIKWJAUR5txRdcgIlmSo')
+a = 'Прохоренко, Сухоруких'#Понедельник
+b = 'Марков, Мордак'
+c = 'Эременко, Олексеенко, Егоров'#Вторник
+d = 'Хорсун, Яицкий'
+e = 'Омельченко, Мірошніченко, Гайдук'#Среда
+f = 'Висоцкий, Чурсинов'
+g = 'Смитюк, Убоженко'#Четверг
+h = 'Катрич, Полатовская, Мащенко'
+i = 'Чуб, Морозов, Рибченко'#Пятница
+j = 'Куриленко, Мироненко, Сапин'
+k = 'Павленко, Минээва, Герман'
+l = 'Баєва, Пискун, Шевченко'
+den = 1
+def main():
+	if(den == 6):
+		bot.send_message(-324753465, 'Сегодня дежурят: ('+k+')-302; ('+l+')-308')
+		den = 1
+	elif(den == 5):
+		bot.send_message(-324753465, 'Сегодня дежурят: ('+i+')-302; ('+j+')-308')
+		den += 1
+	elif(den == 4):
+		bot.send_message(-324753465, 'Сегодня дежурят: ('+g+')-302; ('+h+')-308')
+		den += 1
+	elif(den == 3):
+		bot.send_message(-324753465, 'Сегодня дежурят: ('+e+')-302; ('+f+')-308')
+		den += 1
+	elif(den == 2):
+		bot.send_message(-324753465, 'Сегодня дежурят: ('+c+')-302; ('+d+')-308')
+		den += 1
+	elif(den == 1):
+		bot.send_message(-324753465, 'Сегодня дежурят: ('+a+')-302; ('+b+')-308')
+		den += 1
+schedule.every().monday.at("14:45").do(main)
+schedule.every().tuesday.at("13:05").do(main)
+schedule.every().wednesday.at("13:05").do(main)
+schedule.every().thursday.at("14:45").do(main)
+schedule.every().friday.at("14:45").do(main)
+if __name__ == '__main__':
+	schedule.run_pending()
+	time.sleep(1)
+
+
